@@ -21,6 +21,10 @@ app.use(morgan('tiny')); //what does morgan do?
 app.use(methodOverride('_method')); // syntax in the string?
 
 //home route
+app.get('/', (req, res) => {
+    console.log('hitting home route')
+    res.send('home');
+})
 
 //404 route
 
