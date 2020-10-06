@@ -1,19 +1,4 @@
 
-# Lab: Two Model (no relationship) CRUD
-
-## The idea
-
-1. Come up with a two models
-1. One model will contain the other
-    - e.g.
-        - a house contains multiple people
-        - a store contains multiple items
-        - a gym contains multiple machines
-        - a company contains multiple employees
-
-
-
-
 ## One computer, one driver, one navigator. Make a commit after each step.
 
 ### Setup
