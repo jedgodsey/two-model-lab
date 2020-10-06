@@ -23,9 +23,16 @@ app.use(methodOverride('_method')); // syntax in the string?
 //home route
 app.get('/', (req, res) => {
     console.log('hitting home route')
-    res.send('home');
+    // res.send('home');
 })
 
+app.use('/teams', ctrl.teams);
+app.use('/schools', ctrl.schools);
+
 //404 route
+app.get('*', (req, res) => {
+    console.log('hitting 404')
+    // res.send('404');
+})
 
 app.listen(PORT, console.log(`listening on port ${PORT}`))
