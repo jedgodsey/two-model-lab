@@ -26,8 +26,8 @@ app.get('/', (req, res) => {
     // res.send('home');
 })
 
-app.use('/teams', ctrl.teams);
-app.use('/schools', ctrl.schools);
+// app.use('/teams', ctrl.teams);
+// app.use('/schools', ctrl.schools);
 
 //404 route
 app.get('*', (req, res) => {
@@ -35,4 +35,4 @@ app.get('*', (req, res) => {
     // res.send('404');
 })
 
-app.listen(PORT, console.log(`listening on port ${PORT}`))
+app.listen(PORT, () => console.log(`listening on port ${PORT}`))
