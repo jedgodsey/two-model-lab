@@ -15,6 +15,7 @@ router.get('/new', (req, res) => {
 })
 
 router.post('/', (req, res) => {
+    console.log('hitting add school')
     db.School.create(req.body, (error, newSchool) => {
         error ? console.log(error) : res.redirect(`/schools/${newSchool.id}`)
     })
@@ -25,13 +26,15 @@ router.get('/:school', (req, res) => {
         const context = {
             school: school.school,
             location: school.location,
-            public: school.public
+            public: !!school.public,
+            id: school.id
         }
         error ? console.log(error) : res.render('schools/show', context)
     })
 })
 
 router.delete('/:school', (req, res) => {
+    console.log('hitting delete')
     db.School.findByIdAndDelete(req.params.school, (error, school) => {
         error ? console.log(error) : res.redirect('/schools');
     })
@@ -42,13 +45,15 @@ router.get('/:school/edit', (req, res) => {
         const context = {
             school: school.school,
             location: school.location,
-            public: school.public
+            public: !!school.public,
+            id: school.id
         }
         error ? console.log(error) : res.render('schools/show', context)
     })
 })
 
 router.put('/:school', (req, res) => {
+    console.log('hitting hitting update')
     db.School.findByIdAndUpdate(req.params.school,
         req.body,
         {new: true},

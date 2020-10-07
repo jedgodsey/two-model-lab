@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3001;
 app.set('view engine', 'ejs');
 
 // set controllers
-const ctrl = require('./controllers');
+const schoolCtrl = require('./controllers/schoolCtrl');
 
 //middleware
 app.use(bodyParser.urlencoded({extended: false}));
@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
 })
 
 // app.use('/teams', ctrl.teams);
-// app.use('/schools', ctrl.schools);
+app.use('/schools', schoolCtrl);
 
 //404 route
 app.get('*', (req, res) => {

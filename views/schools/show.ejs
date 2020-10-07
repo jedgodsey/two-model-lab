@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= school %></title>
+</head>
+<body>
+    <h1><%= school %></h1>
+    <p><%= location %></p>
+    <p><%= public ? 'Public College' : 'Private College' %></p>
+    <form action="/schools/<%= id %>?_method=DELETE" method="POST">
+        <input type="submit" value="Delete This School">
+    </form>
+    <form action="/schools/<%= id %>/edit" method="GET">
+        <input type="submit" value="Edit This School">
+    </form>
+</body>
+</html>

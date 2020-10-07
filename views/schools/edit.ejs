@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit School</title>
+</head>
+<body>
+    <h1>Edit School</h1>
+    <form method="POST" action="/schools/<%= id %>?_method=PUT">
+        <div>
+            School: <input type="text" name="school" value="<%= school %>">
+        </div>
+        <div>
+            Location: <input type="text" name="location" value="<%= location %>">
+        </div>
+        <div>
+            Public?: <input type="checkbox" name="public" <%= public ? 'checked' : '' %>>
+        </div>
+        <input type="submit" value="SUBMIT EDITS">
+    </form>
+</body>
+</html>
