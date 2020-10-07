@@ -5,10 +5,8 @@ const teamSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    sexCode: {
-        type: Number,
-        $max: 3,
-        $min: 1,
+    genders: {
+        type: String,
         required: true
     }
 }, {timestamps: true});

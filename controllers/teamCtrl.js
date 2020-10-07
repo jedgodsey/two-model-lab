@@ -24,7 +24,7 @@ router.get('/:team', (req, res) => {
     db.Team.findById(req.params.team, (error, team) => {
         const context = {
             sport: team.sport,
-            sexCode: team.sexCode,
+            genders: team.genders,
             id: team.id
         }
         error ? console.log(error) : res.render('teams/show', context)
@@ -41,7 +41,7 @@ router.get('/:team/edit', (req, res) => {
     db.Team.findById(req.params.team, (error, team) => {
         const context = {
             sport: team.sport,
-            sexCode: team.sexCode,
+            genders: team.genders,
             id: team.id
         }
         error ? console.log(error) : res.render('edit', context);

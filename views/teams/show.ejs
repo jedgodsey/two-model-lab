@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= sport %></title>
+</head>
+<body>
+    <h1><%= sport %></h1>
+    <p>Genders Playing: <%= genders %></p>
+    <form method="POST" action="/teams/<%= id %>?_method=DELETE">
+        <input type="submit" value="Delete This Sport">
+    </form>
+    <form method="GET" action="/teams/<%= id %>/edit">
+        <input type="submit" value="Edit This Sport">
+    </form>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Team</title>
+</head>
+<body>
+    <h1>Edit Sport</h1>
+    <form method="POST" action="/teams/<%= id %>/?_method=PUT">
+    <div>
+        Sport: <input type="text" name="sport">
+    </div>
+    <select name="genders">
+        <option value="" selected disabled hidden>Select Gender</option>
+        <option value="Men">Men</option>
+        <option value="Women">Women</option>
+        <option value="Both">Both</option>
+    </select>
+    <input type="submit" value="SUBMIT EDITS">
+</form>
+</body>
+</html>
