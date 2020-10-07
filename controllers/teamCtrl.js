@@ -16,7 +16,7 @@ router.get('/new', (req, res) => {
 
 router.post('/', (req, res) => {
     db.Team.create(req.body, (error, newTeam) => {
-        error ? console.log(error) : res.redirect(`schools/${newTeam.id}`)
+        error ? console.log(error) : res.redirect(`teams/${newTeam.id}`)
     })
 })
 
@@ -44,7 +44,7 @@ router.get('/:team/edit', (req, res) => {
             genders: team.genders,
             id: team.id
         }
-        error ? console.log(error) : res.render('edit', context);
+        error ? console.log(error) : res.render('teams/edit', context);
     })
 })
 

@@ -9,7 +9,7 @@
     <h1>Edit Sport</h1>
     <form method="POST" action="/teams/<%= id %>/?_method=PUT">
     <div>
-        Sport: <input type="text" name="sport">
+        Sport: <input type="text" name="sport" value="<%= sport %>">
     </div>
     <select name="genders">
         <option value="" selected disabled hidden>Select Gender</option>
