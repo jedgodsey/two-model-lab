@@ -6,7 +6,7 @@ const methodOverride = require('method-override');
 const morgan = require('morgan');
 
 require('dotenv').config();
-const PORT = process.env.PORT || 6000;
+const PORT = process.env.PORT || 3001;
 
 //view engine
 app.set('view engine', 'ejs');
@@ -22,8 +22,7 @@ app.use(methodOverride('_method')); // syntax in the string?
 
 //home route
 app.get('/', (req, res) => {
-    console.log('hitting home route')
-    // res.send('home');
+    res.render('home');
 })
 
 // app.use('/teams', ctrl.teams);
@@ -31,8 +30,7 @@ app.get('/', (req, res) => {
 
 //404 route
 app.get('*', (req, res) => {
-    console.log('hitting 404')
-    // res.send('404');
+    res.render('404');
 })
 
 app.listen(PORT, () => console.log(`listening on port ${PORT}`))
