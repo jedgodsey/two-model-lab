@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const morgan = require('morgan');
@@ -12,7 +11,7 @@ const PORT = process.env.PORT || 3001;
 app.set('view engine', 'ejs');
 
 // set controllers
-const schoolCtrl = require('./controllers/schoolCtrl');
+const ctrl = require('./controllers');
 
 //middleware
 app.use(bodyParser.urlencoded({extended: false}));
@@ -25,8 +24,8 @@ app.get('/', (req, res) => {
     res.render('home');
 })
 
-// app.use('/teams', ctrl.teams);
-app.use('/schools', schoolCtrl);
+app.use('/schools', ctrl.schools);
+app.use('/teams', ctrl.teams);
 
 //404 route
 app.get('*', (req, res) => {
