@@ -1,68 +1,18 @@
+On Singer show page, display Singer's Songs (with links).
+Advanced
+Deleting a Song updates a Singer's Songs list.
+Updating a Song updates a Singer's Songs list.
+Deleting a Singer should delete the associated Songs (this is what 'destroy' means in REST).
+Enable Singer to be changed when editing a Song (use a drop-down). Be sure the 'edits' happen everywhere in the DB.
+Hungry for More
+Bootstrap and/or Partials (and static assets)
+If you haven't yet, spend a few minutes reading about partials (This article and this article look nice). Then, make some partials for the things that are on every page (Such as... the html <head>? maybe a <header> with the links to add song, song index, add artist, and artist index? a <footer>?). This is one of the key features of templating.
 
-## One computer, one driver, one navigator. Make a commit after each step.
+Use a little bootstrap to make your app look nice.
 
-### Setup
+Remember: if you wanna do other/additional CSS, that's a static client-side asset. (How to include static assets (i.e. images, CSS, client-side JS) in an Express app)
 
-1. Init Directory
-1. Start express
-1. Create Home page
+Implement some cool visual stuff with something like:
 
-### First Model
-
-1. Create Index
-1. Create New Page
-1. Set Up Model
-1. Create Post Route
-1. Show All Models on Index Page
-1. Create Show Page
-1. Create Delete Route
-1. Create Edit Page
-1. Create Put Route
-
-## Git stuff: Sync up
-
-1. Driver: add the other person(s) as collaborator
-1. Navigator: clone.
-
-## Switch driver/navigator
-
-1. Old Navigator/New driver: create a branch and switch to it
-```
-git checkout -b second-model
-```
-
-### Second Model
-
-1. Create Index
-1. Create New Page
-1. Set Up Model
-1. Create Post Route
-1. Show All Models on Index Page
-1. Create Show Page
-1. Create Delete Route
-1. Create Edit Page
-1. Create Put Route
-
-## Sync up
-
-1\.  Driver: Once all of second section is done, switch back to the master branch
-
-```
-git checkout master
-```
-
-2\. Driver: Merge the branch with second model into the master branch, and follow prompts to resolve any merge conflicts.  Ask for help with this step if you're stuck.  
-
-```
-git merge second-model
-```
-
-3\. Once you've finished the merge, do another commit, if necessary, with the message: `resolved merge conflicts`
-
-4\. Navigator: Sync up by running: 
-
-```
-git pull origin master
-```
-
-There should not be any merge conflicts
+CSS easing/transitions
+a library like Velocity (remember -- client-side JS is a static asset and can be included in templates with <script>)

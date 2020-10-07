@@ -11,23 +11,32 @@ router.get('/', (req, res) => {
 })
 
 router.get('/new', (req, res) => {
-    res.render('teams/new')
+    db.School.find({}, (err, allSchools) => {
+        const context = {
+            schools: allSchools
+        }
+        err ? console.log(err) : res.render('teams/new', context);
+    })
 })
 
 router.post('/', (req, res) => {
     db.Team.create(req.body, (error, newTeam) => {
-        error ? console.log(error) : res.redirect(`teams/${newTeam.id}`)
+        if (error) console.log(error);
+        db.School.findById(req.body.school, (err, foundSchool) => {
+            if (err) console.log(err);
+            foundSchool.teams.push(newTeam._id);
+            foundSchool.save((err, savedSchool) => {
+                err ? console.log(err) : res.redirect(`/teams/${newTeam._id}`)
+            })
+        })
     })
 })
 
 router.get('/:team', (req, res) => {
-    db.Team.findById(req.params.team, (error, team) => {
-        const context = {
-            sport: team.sport,
-            genders: team.genders,
-            id: team.id
-        }
-        error ? console.log(error) : res.render('teams/show', context)
+    db.Team.findById(req.params.team)
+    .populate('school')
+    .exec((error, team) => {
+        error ? console.log(error) : res.render('teams/show', team)
     })
 })
 

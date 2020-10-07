@@ -6,7 +6,9 @@
     <title><%= sport %></title>
 </head>
 <body>
+    <%- include('../partials/header') %>
     <h1><%= sport %></h1>
+    <a href="/schools/<%= school.id %>"><p><%= school.school %></p></a>
     <p>Genders Playing: <%= genders %></p>
     <form method="POST" action="/teams/<%= id %>?_method=DELETE">
         <input type="submit" value="Delete This Sport">

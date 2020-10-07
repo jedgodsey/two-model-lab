@@ -3,11 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add a Sport</title>
+    <title>Add a Team</title>
 </head>
 <body>
-    <h1>Add a Sport</h1>
+    <%- include('../partials/header') %>
+    <h1>Add a Team</h1>
     <form method="POST" action="/teams">
+        <select name="school">
+            <option value="" selected disabled hidden>Select School</option>
+            <% schools.forEach(item => { %>
+                <option value="<%= item.id %>"><%= item.school %></option>
+
+            <% }) %>
+        </select>
         <div>
             Sport: <input type="text" name="sport">
         </div>

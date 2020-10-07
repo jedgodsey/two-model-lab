@@ -8,6 +8,10 @@ const teamSchema = new mongoose.Schema({
     genders: {
         type: String,
         required: true
+    },
+    school: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'School'
     }
 }, {timestamps: true});
 
