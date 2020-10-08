@@ -7,23 +7,23 @@
 </head>
 <body>
     <%- include('../partials/header') %>
-    <h1><%= school %></h1>
-    <p><%= location %></p>
-    <p><%= public ? 'Public College' : 'Private College' %></p>
+    <h1><%= school.school %></h1>
+    <p><%= school.location %></p>
+    <p><%= school.public ? 'Public College' : 'Private College' %></p>
     <h3>Available Sports:</h3>
-    <h1><%= teams %></h1>
+    <h1><%= school.teams %></h1>
     <ul>
-        <% teams.forEach(item => { %>
+        <% school.teams.forEach(item => { %>
         <li>
             <a href="/teams/<%= item.id %>"><%= item.sport %></a><br />
             Genders: <%= item.genders %>
         </li>
         <% }) %>
     </ul>
-    <form action="/schools/<%= id %>?_method=DELETE" method="POST">
+    <form action="/schools/<%= school.id %>?_method=DELETE" method="POST">
         <input type="submit" value="Delete This School">
     </form>
-    <form action="/schools/<%= id %>/edit" method="GET">
+    <form action="/schools/<%= school.id %>/edit" method="GET">
         <input type="submit" value="Edit This School">
     </form>
 </body>

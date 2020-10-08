@@ -9,7 +9,7 @@ const schoolSchema = new mongoose.Schema({
     public: Boolean,
     teams: [{
         type: mongoose.Schema.Types.ObjectId,
-        reference: 'Team'
+        ref: 'Team'
     }]
 }, {timestamps: true});
 

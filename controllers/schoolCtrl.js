@@ -23,17 +23,19 @@ router.post('/', (req, res) => {
 
 router.get('/:school', (req, res) => {
     db.School.findById(req.params.school)
-    .populate('teams')
+    .populate('Team')
     .exec((error, foundSchool) => {
-        const context = {
-            school: foundSchool.school,
-            location: foundSchool.location,
-            public: !!foundSchool.public,
-            id: foundSchool.id
-        }
-        error ? console.log(error) : res.render('schools/show', context)
+        error ? console.log(error) : res.render('schools/show', {school: foundSchool})
     })
 })
+
+// router.get('/:school', (req, res) => {
+//     db.School.findById(req.params.school)
+//     .populate('teams')
+//     .exec((error, foundSchool) => {
+//         error ? console.log(error) : res.render('schools/show', {school: foundSchool})
+//     })
+// })
 
 router.delete('/:school', (req, res) => {
     db.School.findByIdAndDelete(req.params.school, (error, school) => {
